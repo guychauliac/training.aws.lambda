@@ -9,7 +9,7 @@ Parameters:
     Default: IT
   branchOrTag:
     Type: String
-    Default: MASTER
+    Default: master
 Resources:
   Project:
     Type: 'AWS::CodeBuild::Project'
