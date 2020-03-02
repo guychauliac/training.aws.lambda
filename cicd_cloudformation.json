@@ -1,0 +1,36 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Resources": {
+        "Project": {
+            "Type": "AWS::CodeBuild::Project",
+            "Properties": {
+                "Name": "myProjectName",
+                "Description": "A description about my project",
+                "ServiceRole": "arn:aws:iam::829867751173:role/service-role/codebuild-testlambda-service-role",
+                "Artifacts": {
+                    "Type": "no_artifacts"
+                },
+                "Environment": {
+                    "Type": "LINUX_CONTAINER",
+                    "ComputeType": "BUILD_GENERAL1_SMALL",
+                    "Image": "aws/codebuild/amazonlinux2-x86_64-standard:2.0",
+                    "EnvironmentVariables": [
+                        {
+                            "Name": "STAGE",
+                            "Value": "IT",
+                            "Type": "PLAINTEXT"
+                        }
+                    ]
+                },
+                "Source": {
+                    "Type": "GITHUB",
+                    "Location": "https://github.com/guychauliac/training.aws.lambda.git",
+                    "GitCloneDepth": 1,
+                    "ReportBuildStatus": false,
+                    "InsecureSsl": false
+                },
+                "TimeoutInMinutes": 10
+            }
+        }
+    }
+}

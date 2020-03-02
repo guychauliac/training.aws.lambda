@@ -1,0 +1,1 @@
+aws cloudformation create-stack --stack-name myteststack --template-body file://cicd_cloudformation.yaml --parameters ParameterKey=gitURL,ParameterValue=https://github.com/guychauliac/training.aws.lambda.git ParameterKey=projectName,ParameterValue=testproject ParameterKey=stage,ParameterValue=FT ParameterKey=branchOrTag,ParameterValue=MASTER
