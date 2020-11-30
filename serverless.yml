@@ -58,6 +58,13 @@ provider:
 #    - exclude-me-dir/**
 
 functions:
+  validateBranch:
+    handler: validateBranch.validate
+    events:
+      - http:
+          path: branch/validate
+          method: get
+
   hello:
     handler: handler.hello
 #    The following are a few example events you can configure
